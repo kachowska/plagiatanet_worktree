@@ -1,0 +1,9 @@
+Host cs.urban-space-guacamole-699xj49qj6x52555.main
+	User codespace
+	ProxyCommand /opt/homebrew/bin/gh cs ssh -c urban-space-guacamole-699xj49qj6x52555 --stdio -- -i /Users/kachowska/.ssh/codespaces.auto
+	UserKnownHostsFile=/dev/null
+	StrictHostKeyChecking no
+	LogLevel quiet
+	ControlMaster auto
+	IdentityFile /Users/kachowska/.ssh/codespaces.auto
+
