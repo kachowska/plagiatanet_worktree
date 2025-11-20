@@ -1,0 +1,6 @@
+[submodule "web"]
+	path = web
+	url = git@github.com:kachowska/plagiatanet_web.git
+[submodule "bot"]
+	path = bot
+	url = git@github.com:kachowska/plagiatanet_bot_client.git
