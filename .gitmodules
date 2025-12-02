@@ -1,9 +1,9 @@
-[submodule "web"]
-	path = web
-	url = git@github.com:kachowska/plagiatanet_web.git
 [submodule "bot"]
 	path = bot
 	url = git@github.com:kachowska/plagiatanet_bot_client.git
+[submodule "web"]
+	path = web
+	url = git@github.com:kachowska/plagiatanet_web.git
 [submodule "engine"]
 	path = engine
 	url = https://github.com/kachowska/paraphrase_engine.git
