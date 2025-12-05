@@ -1,0 +1,129 @@
+# Инструкция по развертыванию (Deployment)
+
+В этой папке находятся скрипты для настройки вашего VPS сервера (IP: 178.172.139.125).
+
+## Данные сервера
+- **IP**: 178.172.139.125
+- **Login**: root
+- **Password**: rS6*mXhy$}
+
+---
+
+## Вариант 1: Использование FileZilla (Рекомендуемый для вас)
+
+Так как вы скачали FileZilla, это самый простой способ загрузить файлы.
+
+### Шаг 1: Подготовка файлов (на вашем компьютере)
+Вам нужно собрать проект перед загрузкой. Откройте терминал в редакторе (Cursor/VS Code) и выполните:
+
+1. **Сборка сайта (Frontend):**
+   ```bash
+   cd web
+   npm install
+   npm run build
+   # Появится папка web/dist
+   cd ..
+   ```
+
+2. **Сборка бота (Backend):**
+   ```bash
+   cd bot/server
+   npm install
+   npm run build
+   # Появится папка bot/server/dist
+   cd ../..
+   ```
+
+### Шаг 2: Подключение в FileZilla
+1. Откройте FileZilla.
+2. Введите данные в верхней панели:
+   - **Хост**: `sftp://178.172.139.125` (Важно: добавьте `sftp://` для безопасного соединения)
+   - **Имя пользователя**: `root`
+   - **Пароль**: `rS6*mXhy$}`
+   - **Порт**: `22` (или оставьте пустым)
+3. Нажмите **Быстрое соединение**.
+
+### Шаг 3: Загрузка файлов
+В правой панели (удаленный сервер) перейдите в папку `/var/www/plagiatanet`. Если папок нет, создайте их правой кнопкой мыши -> "Создать каталог".
+
+Вам нужно создать следующую структуру на сервере:
+
+1. **Папка `/var/www/plagiatanet/html`**:
+   - Откройте эту папку на сервере (справа).
+   - На компьютере (слева) найдите папку `web/dist`.
+   - Перетащите **содержимое** папки `web/dist` (файлы index.html, assets и др.) в правую панель.
+
+2. **Папка `/var/www/plagiatanet/backend`**:
+   - Откройте эту папку на сервере (справа).
+   - На компьютере (слева) найдите папку `bot/server`.
+   - Перетащите **содержимое** папки `bot/server` (package.json, dist, src, и т.д.) в правую панель.
+   - **Важно:** Папку `node_modules` копировать НЕ НУЖНО (она весит много, мы установим её на сервере).
+
+3. **Конфигурация Nginx**:
+   - Загрузите файл `deployment/nginx.conf` в папку `/root/` на сервере.
+   - Загрузите файл `deployment/setup_remote.sh` в папку `/root/` на сервере.
+
+---
+
+## Шаг 4: Настройка сервера (через терминал)
+
+Даже при использовании FileZilla, вам нужно выполнить несколько команд, чтобы запустить программы.
+
+1. Откройте терминал (PowerShell или командную строку) и подключитесь к серверу:
+   ```bash
+   ssh root@178.172.139.125
+   # Введите пароль: rS6*mXhy$}
+   ```
+
+2. Запустите скрипт автоматической настройки (который мы загрузили в шаге 3):
+   ```bash
+   chmod +x /root/setup_remote.sh
+   /root/setup_remote.sh
+   ```
+   *Этот скрипт установит Node.js, Nginx, базу данных и настроит все автоматически.*
+
+3. Настройте Backend:
+   ```bash
+   # Переходим в папку бэкенда
+   cd /var/www/plagiatanet/backend
+
+   # Создаем файл настроек .env
+   nano .env
+   ```
+   Вставьте туда следующие строки (нажмите правой кнопкой мыши для вставки):
+   ```env
+   PORT=3000
+   DATABASE_URL=postgresql://plagiatanet_orders_db_user:rakMoadq41nd3Qcf1P7sgJ5sUV6Y4ZoX@dpg-d4fgp4h5pdvs73ag3ek0-a.oregon-postgres.render.com/plagiatanet_orders_db
+   CLIENT_BOT_TOKEN=8531679123:AAHYeJe5Qu6mdohlMj-VDOp2579tD8OYveo
+   ENGINE_BOT_TOKEN=8531679123:AAHYeJe5Qu6mdohlMj-VDOp2579tD8OYveo
+   ENGINE_CHAT_ID=-1002530449235
+   ADMIN_USER_ID=7250063497
+   RECAPTCHA_API_KEY=AIzaSyD71pZ_RMCw9vFsTQlzzgwrLZTq-DpArz0
+   RECAPTCHA_PROJECT_ID=gen-lang-client-0162474752
+   RECAPTCHA_SITE_KEY=6LfiAhMsAAAAAJZ60cGtcDDTFMVchXhPtbYQ25x8
+   WEBHOOK_URL=http://178.172.139.125
+   
+   # Настройки Email (для отправки уведомлений и готовых работ)
+   EMAIL_ENABLED=true
+   EMAIL_HOST=mailbe08.hoster.by
+   EMAIL_PORT=465
+   EMAIL_USER=zakaz@plagiatanet.by
+   EMAIL_PASSWORD=SNarkova03071990)&@
+   EMAIL_FROM=zakaz@plagiatanet.by
+   EMAIL_TO=zakaz@plagiatanet.by
+   ```
+   Нажмите `Ctrl+X`, затем `Y`, затем `Enter`, чтобы сохранить.
+
+4. Запустите приложения:
+   ```bash
+   # Устанавливаем зависимости
+   npm install
+
+   # Запускаем сервер
+   pm2 start dist/server.js --name "backend"
+   pm2 save
+   pm2 startup
+   ```
+
+Теперь ваш сайт должен быть доступен по адресу http://178.172.139.125
+
