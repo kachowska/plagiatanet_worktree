@@ -60,8 +60,8 @@ curl -F "url=https://<YOUR_DOMAIN>/webhook/<CLIENT_BOT_TOKEN>" \
 
 Например:
 ```bash
-curl -F "url=https://plagiatanet.by/webhook/8531679123:AAHYeJe5Qu6mdohlMj-VDOp2579tD8OYveo" \
-     https://api.telegram.org/bot8531679123:AAHYeJe5Qu6mdohlMj-VDOp2579tD8OYveo/setWebhook
+curl -F "url=https://plagiatanet.by/webhook/<YOUR_BOT_TOKEN>" \
+     https://api.telegram.org/bot<YOUR_BOT_TOKEN>/setWebhook
 ```
 
 ## Возможные проблемы
