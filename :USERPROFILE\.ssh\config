@@ -7,3 +7,17 @@ Host cs.urban-space-guacamole-699xj49qj6x52555.main
 	ControlMaster auto
 	IdentityFile /Users/kachowska/.ssh/codespaces.auto
 
+Host plagiatanet-server
+	HostName 31.44.3.133
+	User root
+	IdentityFile ~/.ssh/plagiatanet
+	IdentitiesOnly yes
+	StrictHostKeyChecking no
+
+Host plagiatanet-engine
+	HostName 45.138.24.175
+	User root
+	IdentityFile ~/.ssh/plagiatanet
+	IdentitiesOnly yes
+	StrictHostKeyChecking no
+
