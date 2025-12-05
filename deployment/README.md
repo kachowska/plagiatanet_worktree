@@ -7,7 +7,7 @@ This directory contains scripts to deploy the Plagiatanet application to your VP
 1.  **SSH Access**: Ensure you can connect to the server.
     ```bash
     ssh root@178.172.139.125
-    # Password: rS6*mXhy$}
+    # Password: Obtain from secure password manager or project administrator
     ```
     *Recommended: Set up SSH keys to avoid typing the password repeatedly.*
 

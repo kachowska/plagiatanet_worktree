@@ -5,7 +5,7 @@
 ## Данные сервера
 - **IP**: 178.172.139.125
 - **Login**: root
-- **Password**: rS6*mXhy$}
+- **Password**: *Храните пароль в защищенном менеджере паролей. Обратитесь к администратору проекта для получения доступа.*
 
 ---
 
@@ -39,7 +39,7 @@
 2. Введите данные в верхней панели:
    - **Хост**: `sftp://178.172.139.125` (Важно: добавьте `sftp://` для безопасного соединения)
    - **Имя пользователя**: `root`
-   - **Пароль**: `rS6*mXhy$}`
+   - **Пароль**: *Получите пароль из защищенного менеджера паролей*
    - **Порт**: `22` (или оставьте пустым)
 3. Нажмите **Быстрое соединение**.
 
@@ -72,7 +72,7 @@
 1. Откройте терминал (PowerShell или командную строку) и подключитесь к серверу:
    ```bash
    ssh root@178.172.139.125
-   # Введите пароль: rS6*mXhy$}
+   # Введите пароль (получите из защищенного менеджера паролей)
    ```
 
 2. Запустите скрипт автоматической настройки (который мы загрузили в шаге 3):
@@ -93,25 +93,27 @@
    Вставьте туда следующие строки (нажмите правой кнопкой мыши для вставки):
    ```env
    PORT=3000
-   DATABASE_URL=postgresql://plagiatanet_orders_db_user:rakMoadq41nd3Qcf1P7sgJ5sUV6Y4ZoX@dpg-d4fgp4h5pdvs73ag3ek0-a.oregon-postgres.render.com/plagiatanet_orders_db
-   CLIENT_BOT_TOKEN=8531679123:AAHYeJe5Qu6mdohlMj-VDOp2579tD8OYveo
-   ENGINE_BOT_TOKEN=8531679123:AAHYeJe5Qu6mdohlMj-VDOp2579tD8OYveo
-   ENGINE_CHAT_ID=-1002530449235
-   ADMIN_USER_ID=7250063497
-   RECAPTCHA_API_KEY=AIzaSyD71pZ_RMCw9vFsTQlzzgwrLZTq-DpArz0
-   RECAPTCHA_PROJECT_ID=gen-lang-client-0162474752
-   RECAPTCHA_SITE_KEY=6LfiAhMsAAAAAJZ60cGtcDDTFMVchXhPtbYQ25x8
+   DATABASE_URL=<ваш_database_url>
+   CLIENT_BOT_TOKEN=<ваш_client_bot_token>
+   ENGINE_BOT_TOKEN=<ваш_engine_bot_token>
+   ENGINE_CHAT_ID=<ваш_engine_chat_id>
+   ADMIN_USER_ID=<ваш_admin_user_id>
+   RECAPTCHA_API_KEY=<ваш_recaptcha_api_key>
+   RECAPTCHA_PROJECT_ID=<ваш_recaptcha_project_id>
+   RECAPTCHA_SITE_KEY=<ваш_recaptcha_site_key>
    WEBHOOK_URL=http://178.172.139.125
    
    # Настройки Email (для отправки уведомлений и готовых работ)
    EMAIL_ENABLED=true
-   EMAIL_HOST=mailbe08.hoster.by
+   EMAIL_HOST=<ваш_email_host>
    EMAIL_PORT=465
-   EMAIL_USER=zakaz@plagiatanet.by
-   EMAIL_PASSWORD=SNarkova03071990)&@
-   EMAIL_FROM=zakaz@plagiatanet.by
-   EMAIL_TO=zakaz@plagiatanet.by
+   EMAIL_USER=<ваш_email_user>
+   EMAIL_PASSWORD=<ваш_email_password>
+   EMAIL_FROM=<ваш_email_from>
+   EMAIL_TO=<ваш_email_to>
    ```
+   
+   > **Важно:** Получите реальные значения для этих переменных из защищенного менеджера паролей или обратитесь к администратору проекта.
    Нажмите `Ctrl+X`, затем `Y`, затем `Enter`, чтобы сохранить.
 
 4. Запустите приложения:
