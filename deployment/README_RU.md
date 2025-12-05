@@ -93,24 +93,24 @@
    Вставьте туда следующие строки (нажмите правой кнопкой мыши для вставки):
    ```env
    PORT=3000
-   DATABASE_URL=postgresql://plagiatanet_orders_db_user:rakMoadq41nd3Qcf1P7sgJ5sUV6Y4ZoX@dpg-d4fgp4h5pdvs73ag3ek0-a.oregon-postgres.render.com/plagiatanet_orders_db
-   CLIENT_BOT_TOKEN=8531679123:AAHYeJe5Qu6mdohlMj-VDOp2579tD8OYveo
-   ENGINE_BOT_TOKEN=8531679123:AAHYeJe5Qu6mdohlMj-VDOp2579tD8OYveo
-   ENGINE_CHAT_ID=-1002530449235
-   ADMIN_USER_ID=7250063497
-   RECAPTCHA_API_KEY=AIzaSyD71pZ_RMCw9vFsTQlzzgwrLZTq-DpArz0
-   RECAPTCHA_PROJECT_ID=gen-lang-client-0162474752
-   RECAPTCHA_SITE_KEY=6LfiAhMsAAAAAJZ60cGtcDDTFMVchXhPtbYQ25x8
-   WEBHOOK_URL=http://178.172.139.125
+   DATABASE_URL=your_database_url
+   CLIENT_BOT_TOKEN=your_client_bot_token
+   ENGINE_BOT_TOKEN=your_engine_bot_token
+   ENGINE_CHAT_ID=your_engine_chat_id
+   ADMIN_USER_ID=your_admin_user_id
+   RECAPTCHA_API_KEY=your_recaptcha_api_key
+   RECAPTCHA_PROJECT_ID=your_recaptcha_project_id
+   RECAPTCHA_SITE_KEY=your_recaptcha_site_key
+   WEBHOOK_URL=your_webhook_url
    
    # Настройки Email (для отправки уведомлений и готовых работ)
    EMAIL_ENABLED=true
-   EMAIL_HOST=mailbe08.hoster.by
-   EMAIL_PORT=465
-   EMAIL_USER=zakaz@plagiatanet.by
-   EMAIL_PASSWORD=SNarkova03071990)&@
-   EMAIL_FROM=zakaz@plagiatanet.by
-   EMAIL_TO=zakaz@plagiatanet.by
+   EMAIL_HOST=your_email_host
+   EMAIL_PORT=your_email_port
+   EMAIL_USER=your_email_user
+   EMAIL_PASSWORD=your_email_password
+   EMAIL_FROM=your_email_from
+   EMAIL_TO=your_email_to
    ```
    Нажмите `Ctrl+X`, затем `Y`, затем `Enter`, чтобы сохранить.
 
